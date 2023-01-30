@@ -1,20 +1,25 @@
 import React, { FC } from "react";
-import { Outlet, useMatches } from "react-router-dom";
+import { Outlet, useLocation, useMatches } from "react-router-dom";
 import styled from "styled-components";
 import Rails from "../svgs/rails";
 import SideBar from "./sideBar";
 
-const HOC: FC = () => (
-  <HOCStyled>
-    <SideBar />
-    <div className="rails">
-      <Rails />
-    </div>
-    <div className="content">
-      <Outlet />
-    </div>
-  </HOCStyled>
-);
+const HOC: FC = () => {
+  const location = useLocation();
+  return (
+    <HOCStyled>
+      <SideBar />
+      {location.pathname === "/" && (
+        <div className="rails">
+          <Rails />
+        </div>
+      )}
+      <div className="content">
+        <Outlet />
+      </div>
+    </HOCStyled>
+  );
+};
 
 export default HOC;
 
