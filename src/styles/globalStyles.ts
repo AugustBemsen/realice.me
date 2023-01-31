@@ -54,6 +54,12 @@ const GlobalStyle = createGlobalStyle`
     cursor: pointer;
   }
 
+  a {
+    outline: none;
+    text-decoration: none;
+    color: inherit;
+  }
+
 `;
 
 export default GlobalStyle;

@@ -1,7 +1,8 @@
 import React, { FC } from "react";
 import { Outlet, useLocation, useMatches } from "react-router-dom";
 import styled from "styled-components";
-import Rails from "../svgs/rails";
+import Rails from "../assets/svgs/rails";
+import Media from "../parts/shared/media";
 import SideBar from "./sideBar";
 
 const HOC: FC = () => {
@@ -16,6 +17,7 @@ const HOC: FC = () => {
       )}
       <div className="content">
         <Outlet />
+        <Media />
       </div>
     </HOCStyled>
   );
@@ -33,12 +35,29 @@ const HOCStyled = styled.div`
   position: relative;
 
   .rails {
-    position: absolute;
+    position: fixed;
     top: 0;
-    right: -25px;
+    bottom: 0;
+    right: 0;
   }
 
   .content {
-    margin-left: 3rem;
+    padding: 2.5rem 3rem;
+    width: 100%;
+    height: 100%;
+  }
+
+  @media screen and (min-width: 1600px) {
+    width: 85%;
+    margin: auto;
+    .rails {
+      svg {
+        height: 100%;
+      }
+    }
+
+    .content {
+      padding-left: 5rem;
+    }
   }
 `;
