@@ -63,7 +63,7 @@ const MediaStyled = styled.div`
       display: flex;
       align-items: center;
       margin-left: 1rem;
-      font-size: ${({ theme }) => theme.fonts.sizes.small};
+      font-size: ${({ theme }) => theme.fonts.sizes.xsm};
       color: ${({ theme }) => theme.colors.white};
 
       svg {

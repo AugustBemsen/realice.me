@@ -60,6 +60,15 @@ const GlobalStyle = createGlobalStyle`
     color: inherit;
   }
 
+  h1 {
+    font-size: ${({ theme }) => theme.fonts.sizes.xxl};
+    color: ${({ theme }) => theme.colors.white};
+
+    span {
+      color: ${({ theme }) => theme.colors.primary};
+    }
+  }
+
 `;
 
 export default GlobalStyle;

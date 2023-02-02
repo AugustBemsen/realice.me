@@ -8,6 +8,7 @@ declare module "styled-components" {
       bg: string;
       primary: string;
       white: string;
+      black: string;
       grey: string;
       offwhite: string;
     };
@@ -17,7 +18,8 @@ declare module "styled-components" {
         xl: string;
         lg: string;
         normal: string;
-        small: string;
+        sm: string;
+        xsm: string;
       };
       weights: {
         regular: number;

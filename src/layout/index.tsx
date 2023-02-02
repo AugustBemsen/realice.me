@@ -10,11 +10,9 @@ const HOC: FC = () => {
   return (
     <HOCStyled>
       <SideBar />
-      {location.pathname === "/" && (
-        <div className="rails">
-          <Rails />
-        </div>
-      )}
+      <div className={location.pathname === "/" ? "rails" : "rails blur"}>
+        <Rails />
+      </div>
       <div className="content">
         <Outlet />
         <Media />
@@ -39,6 +37,10 @@ const HOCStyled = styled.div`
     top: 0;
     bottom: 0;
     right: 0;
+
+    &.blur {
+      opacity: 0.3;
+    }
   }
 
   .content {

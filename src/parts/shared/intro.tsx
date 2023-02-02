@@ -11,7 +11,7 @@ const Intro: FC = () => (
     <h1>Daniel Bemsen</h1>
     <p>
       I&apos;m a software engineer. I create interactive web experiences using
-      frontend technology. I am interested in bringing ideas to life From
+      frontend technologies. I am interested in bringing ideas to life from
       concept to deployment, user experience, accessibility, design systems, VR,
       AR and web3.
     </p>
@@ -27,15 +27,6 @@ export default Intro;
 const IntroStyled = styled.div`
   width: 100%;
   height: 100%;
-
-  h1 {
-    font-size: ${({ theme }) => theme.fonts.sizes.xxl};
-    color: ${({ theme }) => theme.colors.white};
-
-    span {
-      color: ${({ theme }) => theme.colors.primary};
-    }
-  }
 
   p {
     font-size: ${({ theme }) => theme.fonts.sizes.normal};

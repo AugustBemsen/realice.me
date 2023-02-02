@@ -3,6 +3,7 @@ const theme = {
     bg: "#151515",
     primary: "#08FDD8",
     white: "#F9F7F5",
+    black: "#09090A",
     grey: "rgba(249, 247, 245, 0.3)",
     offwhite: "rgba(249, 247, 245, 0.5)",
   },
@@ -12,7 +13,8 @@ const theme = {
       xl: "2.2rem",
       lg: "1.5rem",
       normal: "1rem",
-      small: "0.75rem",
+      sm: "0.875rem",
+      xsm: "0.75rem",
     },
     weights: {
       light: 300,
