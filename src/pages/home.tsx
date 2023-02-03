@@ -5,7 +5,22 @@ import Intro from "../parts/shared/intro";
 
 const Home: FunctionComponent = () => (
   <HomeStyled>
-    <Intro />
+    <Intro
+      btnFx={() => ""}
+      btnText="Let’s Build"
+      message=" I'm a software engineer. I create interactive web experiences using
+      frontend technologies. I am interested in bringing ideas to life from
+      concept to deployment, user experience, accessibility, design systems, VR,
+      AR and web3."
+      title={
+        <>
+          <h1>
+            <span>Hello, </span> I’m
+          </h1>
+          <h1>Daniel Bemsen</h1>
+        </>
+      }
+    />
     <LargeAvatar />
   </HomeStyled>
 );

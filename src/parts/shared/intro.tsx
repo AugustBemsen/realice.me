@@ -3,20 +3,19 @@ import styled from "styled-components";
 import ArrowSvg from "../../assets/svgs/arrow";
 import Button from "./button";
 
-const Intro: FC = () => (
+interface Props {
+  title: React.ReactElement;
+  message: string;
+  btnText: string;
+  btnFx: () => void;
+}
+
+const Intro: FC<Props> = ({ title, btnFx, btnText, message }) => (
   <IntroStyled>
-    <h1>
-      <span>Hello, </span> I’m
-    </h1>
-    <h1>Daniel Bemsen</h1>
-    <p>
-      I&apos;m a software engineer. I create interactive web experiences using
-      frontend technologies. I am interested in bringing ideas to life from
-      concept to deployment, user experience, accessibility, design systems, VR,
-      AR and web3.
-    </p>
+    {title}
+    <p>{message}</p>
     <div className="cta-group">
-      <Button>Let’s Build</Button>
+      <Button onClick={btnFx}>{btnText}</Button>
       <ArrowSvg />
     </div>
   </IntroStyled>
@@ -34,6 +33,9 @@ const IntroStyled = styled.div`
     letter-spacing: 0.05em;
     width: 390px;
     margin-top: 2rem;
+    line-height: 172.5%;
+    font-weight: ${({ theme }) => theme.fonts.weights.light};
+    letter-spacing: 0.05em;
   }
 
   .cta-group {

@@ -3,10 +3,11 @@ import styled from "styled-components";
 
 interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
+  fullWidth?: boolean;
 }
 
-const Button: FC<Props> = ({ children }) => (
-  <ButtonStyled>{children}</ButtonStyled>
+const Button: FC<Props> = ({ children, fullWidth }) => (
+  <ButtonStyled className={fullWidth ? "fw" : ""}>{children}</ButtonStyled>
 );
 
 export default Button;
@@ -22,6 +23,10 @@ const ButtonStyled = styled.button`
   border-radius: ${({ theme }) => theme.border.radius.md};
   position: relative;
   overflow: hidden;
+
+  &.fw {
+    width: 100%;
+  }
 
   &::before {
     transition: all 0.4s;
