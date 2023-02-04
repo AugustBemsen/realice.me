@@ -6,6 +6,7 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     font-family: ${({ theme }) => theme.fonts.FontFace.primary};
+    scroll-behavior: smooth;
   }
 
   
@@ -25,14 +26,6 @@ const GlobalStyle = createGlobalStyle`
     background: #e0e0e0;
   }
 
-
-  :root {
-    --nav-height: 12vh;
-
-    @media screen and (max-width: 800px) { 
-      --nav-height: 9vh;
-    }
-  }
 
   body {
     background: ${({ theme }) => theme.colors.bg};
