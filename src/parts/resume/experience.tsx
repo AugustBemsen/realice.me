@@ -1,11 +1,24 @@
-import React, { FunctionComponent, useState } from "react";
+import React, { FunctionComponent, useState, useEffect } from "react";
 import styled from "styled-components";
+import { BsPlay } from "react-icons/bs";
+
 import experienceDataTypes from "../../types/experienceDataTypes";
 import experienceData from "../../utils/experienceData";
 
 const Experience: FunctionComponent = () => {
-  // handle active tabs
+  // states
   const [activeTab, setActiveTab] = useState(1);
+  const [activeActions, setActiveActions] = useState<experienceDataTypes>();
+
+  // handle selected company
+
+  useEffect(() => {
+    setActiveActions(
+      experienceData.filter(
+        (experience: experienceDataTypes) => experience.id === activeTab
+      )[0]
+    );
+  }, [activeTab]);
 
   return (
     <ExperienceStyled>
@@ -29,10 +42,14 @@ const Experience: FunctionComponent = () => {
           ))}
         </div>
         <div className="job-content">
-          <p>it goes here</p>
-          <p>it goes here</p>
-          <p>it goes here</p>
-          <p>it goes here</p>
+          <h3>{activeActions?.role}</h3>
+          <p className="date">{`${activeActions?.start_date} - ${activeActions?.end_date}`}</p>
+          {activeActions?.actions.map((action) => (
+            <div className="actions">
+              <BsPlay />
+              <p>{action}</p>
+            </div>
+          ))}
         </div>
       </div>
     </ExperienceStyled>
@@ -81,5 +98,36 @@ const ExperienceStyled = styled.div`
 
   .job-content {
     padding: 10px;
+
+    h3 {
+      font-weight: ${({ theme }) => theme.fonts.weights.large};
+      text-transform: uppercase;
+      color: ${({ theme }) => theme.colors.white};
+      letter-spacing: 1.5px;
+    }
+
+    .date {
+      font-size: ${({ theme }) => theme.fonts.sizes.xsm};
+      margin: 5px 0 1rem;
+    }
+
+    .actions {
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+
+      p {
+        font-size: ${({ theme }) => theme.fonts.sizes.sm};
+        color: ${({ theme }) => theme.colors.white};
+        width: calc(100% - ${({ theme }) => theme.fonts.sizes.normal} + 10px);
+      }
+
+      svg {
+        font-size: ${({ theme }) => theme.fonts.sizes.normal};
+        color: ${({ theme }) => theme.colors.primary};
+        margin-right: 10px;
+      }
+    }
   }
 `;

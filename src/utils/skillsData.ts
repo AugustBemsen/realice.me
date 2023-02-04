@@ -1,0 +1,28 @@
+const skillsData: string[] = [
+  "Javascript",
+  "Typescript",
+  "Next Js",
+  "Redux",
+  "React JS",
+  "Html",
+  "Css",
+  "Jest",
+  "Git",
+  "GSAP",
+  "Framer Motion",
+  "Bootsrap",
+  "Jquery",
+  "JSON",
+  "Axios",
+  "NPM",
+  "Yarn",
+  "Styled-Components",
+  "SCSS",
+  "Context API",
+  "Redux Toolkit",
+  "Tailwind",
+  "Material UI",
+  "Agile methodologies",
+];
+
+export default skillsData;
