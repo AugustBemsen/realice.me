@@ -6,7 +6,7 @@ import Intro from "../parts/shared/intro";
 const Home: FunctionComponent = () => (
   <HomeStyled>
     <Intro
-      btnFx={() => ""}
+      btnFx={() => window.location.assign("mailto:danireptor7@gmail.com")}
       btnText="Let’s Build"
       message=" I'm a software engineer. I create interactive web experiences using
       frontend technologies. I am interested in bringing ideas to life from

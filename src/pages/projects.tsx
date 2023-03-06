@@ -1,19 +1,28 @@
 import React, { FunctionComponent } from "react";
 import styled from "styled-components";
 import WorkCard from "../parts/project/card";
+import projectDataTypes from "../types/projectDataTypes";
+import projectData from "../utils/projectsData";
 
 const Projects: FunctionComponent = () => (
   <ProjectsStyled>
     <h1>
-      Some Things <span> I’ve</span>
+      Some Stuffs <span> I’ve</span>
     </h1>
     <h1>Built</h1>
     <div className="grid-box">
-      <WorkCard />
-      <WorkCard />
-      <WorkCard />
-      <WorkCard />
-      <WorkCard />
+      {projectData.map((project: projectDataTypes) => (
+        <WorkCard
+          key={project.id}
+          description={project.description}
+          img={project.img}
+          liveLink={project.liveLink}
+          codeLink={project.codeLink}
+          technologies={project.technologies}
+          project={project.project}
+          id={project.id}
+        />
+      ))}
     </div>
   </ProjectsStyled>
 );

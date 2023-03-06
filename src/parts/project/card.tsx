@@ -3,20 +3,32 @@ import { AiOutlineEye } from "react-icons/ai";
 import { BiGitBranch } from "react-icons/bi";
 import { RiScreenshot2Line } from "react-icons/ri";
 import styled from "styled-components";
+import projectDataTypes from "../../types/projectDataTypes";
 
-const WorkCard: FunctionComponent = () => (
+const WorkCard: FunctionComponent<projectDataTypes> = ({
+  description,
+  img,
+  liveLink,
+  project,
+  technologies,
+  codeLink,
+}) => (
   <WorkCardStyled>
-    <h3>Movie</h3>
-    <img src="https://via.placeholder.com/350x130.png" alt="work" />
-    <h5>React + Styled-Components</h5>
-    <p>An App Where The User Can see Latest Movies and More Info About Them.</p>
+    <h3>{project}</h3>
+    <img src={img} alt={project} />
+    <h5>
+      {technologies[0]} + {technologies[1]}
+    </h5>
+    <p>{description}</p>
     <div className="cta">
-      <a href="http://" target="_blank" rel="noopener noreferrer">
+      <a href={liveLink} target="_blank" rel="noopener noreferrer">
         <AiOutlineEye /> Live
       </a>
-      <a href="http://" target="_blank" rel="noopener noreferrer">
-        <BiGitBranch /> Code
-      </a>
+      {codeLink && (
+        <a href="http://" target="_blank" rel="noopener noreferrer">
+          <BiGitBranch /> Code
+        </a>
+      )}
       {/* <a href="http://" target="_blank" rel="noopener noreferrer">
         <RiScreenshot2Line /> Screenshots
       </a> */}
