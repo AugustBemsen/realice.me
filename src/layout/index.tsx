@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useEffect } from "react";
 import { Outlet, useLocation, useMatches } from "react-router-dom";
 import styled from "styled-components";
 import Rails from "../assets/svgs/rails";
@@ -8,6 +8,10 @@ import SideBar from "./sideBar";
 
 const HOC: FC = () => {
   const location = useLocation();
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, [location.pathname]);
+
   return (
     <HOCStyled>
       <SideBar />

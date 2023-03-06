@@ -36,6 +36,7 @@ const Experience: FunctionComponent = () => {
               onKeyDown={() => setActiveTab(experience.id)}
               role="button"
               tabIndex={experience.id}
+              key={experience.id}
             >
               {experience.company_name}
             </div>
@@ -45,7 +46,7 @@ const Experience: FunctionComponent = () => {
           <h3>{activeActions?.role}</h3>
           <p className="date">{`${activeActions?.start_date} - ${activeActions?.end_date}`}</p>
           {activeActions?.actions.map((action) => (
-            <div className="actions">
+            <div className="actions" key={action}>
               <BsPlay />
               <p>{action}</p>
             </div>

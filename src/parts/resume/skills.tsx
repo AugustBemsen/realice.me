@@ -9,9 +9,13 @@ const Skills: FunctionComponent = () => (
     <div className="skill-intro">
       <div className="person">
         <h2>Daniel Bemsen Akosu</h2>
-        <p>
+        <a
+          href="https://docs.google.com/document/d/1XgOTtULd609_9znaW1Vbq38KJbNKeS8avNTZjVWojeE/edit?usp=sharing"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <BiDownload /> Download.pdf
-        </p>
+        </a>
       </div>
       <h6>Software Engineer</h6>
     </div>
@@ -26,7 +30,7 @@ const Skills: FunctionComponent = () => (
         <hr />
         <div className="stuffs">
           {skillsData.map((skill) => (
-            <div className="actions">
+            <div className="actions" key={skill}>
               <BsPlay />
               <p>{skill}</p>
             </div>
@@ -60,8 +64,8 @@ const SkillsStyled = styled.div`
         color: ${({ theme }) => theme.colors.white};
       }
 
-      p {
-        display: flex;
+      a {
+        display: inline-flex;
         align-items: center;
         color: ${({ theme }) => theme.colors.primary};
         font-size: ${({ theme }) => theme.fonts.sizes.xsm};
@@ -152,7 +156,7 @@ const SkillsStyled = styled.div`
           margin: 10px 0;
         }
 
-        p {
+        a {
           font-size: ${({ theme }) => theme.fonts.sizes.normal};
 
           svg {
