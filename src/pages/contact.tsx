@@ -22,10 +22,15 @@ const Contact: FunctionComponent = () => {
     <ContactStyled>
       <Intro
         btnFx={() => ""}
-        btnText="Let’s Build"
-        message="As a front-end developer, I develop user-friendly, visually appealing, 
-      and responsive web interfaces using modern technologies. 
-      I aim to create dynamic user experiences and enhance website functionality."
+        btnText="Let’s Talk"
+        message={
+          <p>
+            As a <span> Front-end Developer </span>, I develop user-friendly,
+            visually appealing, and responsive web interfaces using{" "}
+            <span> modern technologies </span>. I aim to create dynamic user
+            experiences and <span> enhance </span> website functionality.
+          </p>
+        }
         title={
           <>
             <h1>

@@ -5,7 +5,7 @@ import Button from "./button";
 
 interface Props {
   title: React.ReactElement;
-  message: string;
+  message: React.ReactElement;
   btnText: string;
   btnFx: () => void;
   noBtn?: boolean;
@@ -14,7 +14,7 @@ interface Props {
 const Intro: FC<Props> = ({ title, btnFx, btnText, message, noBtn }) => (
   <IntroStyled>
     {title}
-    <p>{message}</p>
+    {message}
     <div className="cta-group">
       {!noBtn && <Button onClick={btnFx}>{btnText}</Button>}
       <ArrowSvg />
@@ -37,6 +37,10 @@ const IntroStyled = styled.div`
     line-height: 172.5%;
     font-weight: ${({ theme }) => theme.fonts.weights.light};
     letter-spacing: 0.05em;
+
+    span {
+      color: ${({ theme }) => theme.colors.white};
+    }
   }
 
   .cta-group {

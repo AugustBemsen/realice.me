@@ -81,6 +81,7 @@ const WorkCardStyled = styled.div`
       align-items: center;
       margin-right: 1rem;
       font-size: ${({ theme }) => theme.fonts.sizes.xsm};
+      color: ${({ theme }) => theme.colors.white};
 
       svg {
         margin-right: 5px;
