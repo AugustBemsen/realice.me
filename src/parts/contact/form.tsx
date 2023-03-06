@@ -7,9 +7,11 @@ import "react-toastify/dist/ReactToastify.css";
 import Button from "../shared/button";
 
 const ContactForm: FunctionComponent = () => {
-  const serviceId = import.meta.env.VITE_EMAIL_SERVICE_ID as string;
-  const templateId = import.meta.env.VITE_EMAIL_TEMP_ID as string;
-  const publicKey = import.meta.env.VITE_EMAIL_PK as string;
+  const serviceId =
+    import.meta.env.VITE_EMAIL_SERVICE_ID || process.env.VITE_EMAIL_SERVICE_ID;
+  const templateId =
+    import.meta.env.VITE_EMAIL_TEMP_ID || process.env.VITE_EMAIL_TEMP_ID;
+  const publicKey = import.meta.env.VITE_EMAIL_PK || process.env.VITE_EMAIL_PK;
 
   const [message, setMessage] = useState("");
   const [email, setEmail] = useState("");
