@@ -39,10 +39,16 @@ const ProjectsStyled = styled.div`
     margin-top: 7%;
 
     .grid-box {
-      display: block;
+      /* display: block; */
       width: 100%;
       overflow-x: hidden;
       padding: 0;
+
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(46%, 1fr));
+      grid-column-gap: 2rem;
+      grid-auto-flow: dense;
+      column-count: 2;
     }
   }
 `;
