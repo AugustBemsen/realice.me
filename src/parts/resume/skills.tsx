@@ -133,4 +133,37 @@ const SkillsStyled = styled.div`
       }
     }
   }
+
+  @media screen and (max-width: 850px) {
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+
+  @media screen and (max-width: 500px) {
+    padding: 1rem;
+
+    .skill-intro {
+      .person {
+        flex-direction: column-reverse;
+        align-items: flex-start;
+
+        h2 {
+          font-size: ${({ theme }) => theme.fonts.sizes.lg};
+          margin: 10px 0;
+        }
+
+        p {
+          font-size: ${({ theme }) => theme.fonts.sizes.normal};
+
+          svg {
+            font-size: ${({ theme }) => theme.fonts.sizes.normal};
+          }
+        }
+      }
+    }
+
+    .skill-set .skills-wrapper {
+      margin-left: 0;
+    }
+  }
 `;

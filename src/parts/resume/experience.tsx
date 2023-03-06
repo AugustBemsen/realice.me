@@ -130,4 +130,22 @@ const ExperienceStyled = styled.div`
       }
     }
   }
+
+  @media screen and (max-width: 850px) {
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+
+  @media screen and (max-width: 500px) {
+    .nav {
+      margin-right: 10px;
+    }
+
+    .job-content {
+      h3 {
+        font-size: ${({ theme }) => theme.fonts.sizes.normal};
+        letter-spacing: 1px;
+      }
+    }
+  }
 `;

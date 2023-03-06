@@ -18,4 +18,9 @@ const ResumeStyled = styled.div`
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
+
+  @media screen and (max-width: 850px) {
+    display: block;
+    margin-top: 7%;
+  }
 `;
