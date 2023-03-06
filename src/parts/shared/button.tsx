@@ -1,16 +1,29 @@
 import React, { ButtonHTMLAttributes, FC } from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
   fullWidth?: boolean;
+  isLoading?: boolean;
 }
 
-const Button: FC<Props> = ({ children, fullWidth }) => (
-  <ButtonStyled className={fullWidth ? "fw" : ""}>{children}</ButtonStyled>
+const Button: FC<Props> = ({ children, fullWidth, isLoading }) => (
+  <ButtonStyled className={fullWidth ? "fw" : ""} disabled={isLoading}>
+    {isLoading ? <div className="loader" /> : children}
+  </ButtonStyled>
 );
 
 export default Button;
+
+const spin = keyframes`
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+`;
 
 const ButtonStyled = styled.button`
   width: 150px;
@@ -23,6 +36,18 @@ const ButtonStyled = styled.button`
   border-radius: ${({ theme }) => theme.border.radius.md};
   position: relative;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .loader {
+    border: 3px solid ${({ theme }) => theme.colors.offwhite};
+    border-top: 3px solid ${({ theme }) => theme.colors.primary};
+    border-radius: 50%;
+    width: 23px;
+    height: 23px;
+    animation: ${spin} 0.6s linear infinite;
+  }
 
   &.fw {
     width: 100%;
@@ -47,5 +72,10 @@ const ButtonStyled = styled.button`
 
   &:hover {
     color: ${({ theme }) => theme.colors.bg};
+  }
+
+  &:disabled::before {
+    width: 0%;
+    cursor: not-allowed;
   }
 `;

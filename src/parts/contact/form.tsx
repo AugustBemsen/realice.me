@@ -1,30 +1,117 @@
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent, useState, useRef } from "react";
 import styled from "styled-components";
+import emailjs from "@emailjs/browser";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import Button from "../shared/button";
 
-const ContactForm: FunctionComponent = () => (
-  <ContactFormStyled>
-    <div className="input-group">
-      <label htmlFor="name">
-        Name*
-        <input type="text" name="name" />
-      </label>
-    </div>
-    <div className="input-group">
-      <label htmlFor="email">
-        Email*
-        <input type="email" name="email" />
-      </label>
-    </div>
-    <div className="input-group">
-      <label htmlFor="message">
-        Message*
-        <textarea name="name" />
-      </label>
-    </div>
-    <Button fullWidth>Submit</Button>
-  </ContactFormStyled>
-);
+const ContactForm: FunctionComponent = () => {
+  const serviceId = import.meta.env.VITE_EMAIL_SERVICE_ID as string;
+  const templateId = import.meta.env.VITE_EMAIL_TEMP_ID as string;
+  const publicKey = import.meta.env.VITE_EMAIL_PK as string;
+
+  const [message, setMessage] = useState("");
+  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const formRef = useRef<string | HTMLFormElement>("");
+
+  const sendEmail = (e: any) => {
+    e.preventDefault();
+
+    if (email && name && message) {
+      setLoading(true);
+      emailjs.sendForm(serviceId, templateId, formRef.current, publicKey).then(
+        (result) => {
+          setLoading(false);
+          setEmail("");
+          setMessage("");
+          setName("");
+          toast("Thanks for reaching out, I'll get back to you soon", {
+            position: "bottom-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            type: "success",
+          });
+        },
+        (error) => {
+          setLoading(false);
+          toast("Couldn't complete your request, try again", {
+            position: "bottom-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            type: "error",
+          });
+        }
+      );
+    } else {
+      toast("Please fill out all fields", {
+        position: "bottom-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        type: "warning",
+      });
+    }
+  };
+  return (
+    // @ts-ignore
+    <ContactFormStyled onSubmit={sendEmail} ref={formRef}>
+      <div className="input-group">
+        <label htmlFor="name">
+          Name*
+          <input
+            type="text"
+            name="name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+        </label>
+      </div>
+      <div className="input-group">
+        <label htmlFor="email">
+          Email*
+          <input
+            type="email"
+            name="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </label>
+      </div>
+      <div className="input-group">
+        <label htmlFor="message">
+          Message*
+          <textarea
+            name="message"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+          />
+        </label>
+      </div>
+      <Button type="submit" fullWidth isLoading={loading}>
+        Submit
+      </Button>
+      <ToastContainer pauseOnHover />
+    </ContactFormStyled>
+  );
+};
 
 export default ContactForm;
 
