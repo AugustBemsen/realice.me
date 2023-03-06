@@ -76,4 +76,10 @@ const MediaStyled = styled.div`
   @media screen and (max-height: 500px) {
     bottom: 0;
   }
+
+  @media screen and (max-width: 850px) {
+    position: static;
+    margin: 3rem auto;
+    justify-content: center;
+  }
 `;

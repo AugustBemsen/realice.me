@@ -37,4 +37,11 @@ const HomeStyled = styled.div`
   @media screen and (min-width: 1600px) {
     justify-content: center;
   }
+
+  @media screen and (max-width: 850px) {
+    width: 100%;
+    flex-direction: column-reverse;
+    justify-content: center;
+    margin-top: 10%;
+  }
 `;

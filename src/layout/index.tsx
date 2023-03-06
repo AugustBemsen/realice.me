@@ -63,4 +63,17 @@ const HOCStyled = styled.div`
       padding-left: 5rem;
     }
   }
+
+  @media screen and (max-width: 850px) {
+    display: block;
+    height: auto;
+    .rails {
+      display: none;
+    }
+
+    .content {
+      padding: 0;
+      height: auto;
+    }
+  }
 `;

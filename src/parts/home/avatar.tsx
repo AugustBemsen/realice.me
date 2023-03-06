@@ -24,4 +24,13 @@ const LargeAvatarStyled = styled.div`
       height: auto;
     }
   }
+
+  @media screen and (max-width: 500px) {
+    width: 200px;
+    height: auto;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
 `;

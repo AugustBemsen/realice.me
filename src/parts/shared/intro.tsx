@@ -53,4 +53,30 @@ const IntroStyled = styled.div`
       width: 500px;
     }
   }
+
+  @media screen and (max-width: 850px) {
+    width: 100%;
+    text-align: center;
+
+    p {
+      width: 80%;
+      margin: 1.5rem auto;
+    }
+    .cta-group {
+      justify-content: center;
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    p {
+      width: 100%;
+      line-height: 152.5%;
+    }
+
+    .cta-group {
+      svg {
+        display: none;
+      }
+    }
+  }
 `;

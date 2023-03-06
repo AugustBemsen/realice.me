@@ -247,4 +247,8 @@ const SideBarStyled = styled.div`
       cursor: pointer;
     }
   }
+
+  @media screen and (max-width: 850px) {
+    display: none;
+  }
 `;
