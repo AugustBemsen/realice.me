@@ -17,16 +17,16 @@ const WorkCard: FunctionComponent = () => (
       <a href="http://" target="_blank" rel="noopener noreferrer">
         <BiGitBranch /> Code
       </a>
-      <a href="http://" target="_blank" rel="noopener noreferrer">
+      {/* <a href="http://" target="_blank" rel="noopener noreferrer">
         <RiScreenshot2Line /> Screenshots
-      </a>
+      </a> */}
     </div>
   </WorkCardStyled>
 );
 
 export default WorkCard;
 
-const WorkCardStyled = styled.form`
+const WorkCardStyled = styled.div`
   min-width: 380px;
   width: 380px;
   background: ${({ theme }) => theme.colors.black};
@@ -75,5 +75,16 @@ const WorkCardStyled = styled.form`
         font-size: ${({ theme }) => theme.fonts.sizes.sm};
       }
     }
+  }
+
+  @media screen and (max-width: 850px) {
+    width: 100%;
+    min-width: 100%;
+    margin-bottom: 2.5rem;
+    margin-right: 0;
+  }
+
+  @media screen and (max-width: 500px) {
+    padding: 1rem;
   }
 `;

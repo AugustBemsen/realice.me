@@ -34,4 +34,15 @@ const ProjectsStyled = styled.div`
       display: none;
     }
   }
+
+  @media screen and (max-width: 850px) {
+    margin-top: 7%;
+
+    .grid-box {
+      display: block;
+      width: 100%;
+      overflow-x: hidden;
+      padding: 0;
+    }
+  }
 `;
