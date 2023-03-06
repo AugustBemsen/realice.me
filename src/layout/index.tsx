@@ -3,6 +3,7 @@ import { Outlet, useLocation, useMatches } from "react-router-dom";
 import styled from "styled-components";
 import Rails from "../assets/svgs/rails";
 import Media from "../parts/shared/media";
+import MobileNav from "./mobileNav";
 import SideBar from "./sideBar";
 
 const HOC: FC = () => {
@@ -17,6 +18,7 @@ const HOC: FC = () => {
         <Outlet />
         <Media />
       </div>
+      <MobileNav />
     </HOCStyled>
   );
 };

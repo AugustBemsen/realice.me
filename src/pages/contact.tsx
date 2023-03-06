@@ -57,5 +57,6 @@ const ContactStyled = styled.div`
 
   @media screen and (max-width: 850px) {
     display: block;
+    margin-top: 7%;
   }
 `;
