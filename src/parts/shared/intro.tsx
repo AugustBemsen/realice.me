@@ -8,14 +8,15 @@ interface Props {
   message: string;
   btnText: string;
   btnFx: () => void;
+  noBtn?: boolean;
 }
 
-const Intro: FC<Props> = ({ title, btnFx, btnText, message }) => (
+const Intro: FC<Props> = ({ title, btnFx, btnText, message, noBtn }) => (
   <IntroStyled>
     {title}
     <p>{message}</p>
     <div className="cta-group">
-      <Button onClick={btnFx}>{btnText}</Button>
+      {!noBtn && <Button onClick={btnFx}>{btnText}</Button>}
       <ArrowSvg />
     </div>
   </IntroStyled>

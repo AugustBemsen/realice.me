@@ -64,4 +64,10 @@ const ContactFormStyled = styled.form`
       margin-bottom: 2.2rem;
     }
   }
+
+  @media screen and (max-width: 850px) {
+    width: 100%;
+    padding: 1rem;
+    margin-top: 2.5rem;
+  }
 `;

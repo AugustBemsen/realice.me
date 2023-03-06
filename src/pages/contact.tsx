@@ -20,6 +20,7 @@ const Contact: FunctionComponent = () => (
           <h1>great idea</h1>
         </>
       }
+      noBtn={window.innerWidth < 850}
     />
     <ContactForm />
   </ContactStyled>
@@ -36,5 +37,9 @@ const ContactStyled = styled.div`
 
   @media screen and (min-width: 1600px) {
     justify-content: center;
+  }
+
+  @media screen and (max-width: 850px) {
+    display: block;
   }
 `;
